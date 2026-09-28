@@ -1,0 +1,4 @@
+- This is a React (v18) + Vite project utilizing Tailwind CSS and Shadcn UI components.
+- Path aliases are configured (`@/*` maps to `src/*`). Always use absolute imports with `@/` instead of relative parent paths (`../../`).
+- Styling relies heavily on Tailwind utility classes combined with `tailwind-merge` and `clsx` via `src/lib/utils.js`.
+- Routing is handled via React Router DOM.
