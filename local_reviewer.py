@@ -1,55 +1,44 @@
-import subprocess
+import os
 import ollama
 
-# Configure your preferred local coding model
 MODEL_NAME = "qwen2.5-coder"
 
 
-def get_git_diff() -> str:
-    """Retrieve the current git diff of the project."""
+def read_target_file(file_path: str) -> str:
+    """Read the contents of a specific file."""
     try:
-        # Runs 'git diff' to check modified files
-        result = subprocess.run(
-            ["git", "diff"], capture_output=True, text=True, check=True
-        )
-        diff_output = result.stdout.strip()
-
-        if not diff_output:
-            # If no unstaged changes, check staged changes
-            result_staged = subprocess.run(
-                ["git", "diff", "--cached"], capture_output=True, text=True, check=True
-            )
-            diff_output = result_staged.stdout.strip()
-
-        return diff_output
-    except subprocess.CalledProcessError as e:
-        print("Error running git commands:", e)
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception as e:
+        print(f"❌ Error reading file {file_path}: {e}")
         return ""
 
 
-def review_code():
-    print(f"🔍 Fetching git changes...")
-    diff_data = get_git_diff()
+def audit_specific_file(file_path: str):
+    print(f"🔍 Reading file: {file_path}...")
+    file_content = read_target_file(file_path)
 
-    if not diff_data:
-        print("✨ No modified files or git diffs found. Make some changes first!")
+    if not file_content:
+        print(f"✨ File is empty or could not be found.")
         return
 
-    print(f"🤖 Sending diff to local Ollama model ({MODEL_NAME})...\n")
+    print(
+        f"🤖 Sending file content to local Ollama model ({MODEL_NAME}) for deep auditing...\n"
+    )
 
-    # Expanded prompt with path conflicts, version checks, and corner cases
     prompt = f"""
-    You are an expert senior code reviewer for a React, Vite, and Tailwind CSS project using path aliases (`@/*` mapping to `src/*`).
-    Please review the following git diff with rigorous scrutiny and perform the following corner checks:
-    1. **Path & Import Conflicts**: Check for broken import paths, incorrect relative paths (e.g., using `../../` instead of `@/`), or alias misconfigurations.
-    2. **Version & Compatibility**: Check for breaking changes, mismatched package APIs, or version incompatibilities with React 18, Vite 8, or Lucide/Radix UI dependencies.
-    3. **Edge Cases & Corner Checks**: Look for null/undefined handling, missing prop types/defaults, race conditions, or unhandled state transitions.
-    4. **Best Practices**: Verify Tailwind CSS/Shadcn UI class merging (using `clsx` and `tailwind-merge`) and performance bottlenecks.
+    You are an expert senior code reviewer for a React, Vite, Tailwind CSS, and Shadcn UI project.
+    Please perform a deep, rigorous code audit of the following file (`{file_path}`).
+    Look for:
+    1. **Logic & Functional Bugs**: Broken event handlers, state management issues, missing form validation, or unhandled async errors.
+    2. **UI/UX & Tailwind Best Practices**: Incorrect class merging, accessibility issues, or layout bugs.
+    3. **Path & Import Errors**: Broken imports or incorrect path aliases (ensure `@/` is used correctly).
+    4. **Corner Cases**: Null/undefined prop checks, missing fallback states, or race conditions.
     
-    Provide concise feedback, pinpoint potential failure modes, and supply code snippets for recommended fixes.
+    Provide precise feedback, identify failure modes, and supply corrected code snippets for any issues found.
 
-    Git Diff:
-    {diff_data}
+    File Content:
+    {file_content}
     """
 
     try:
@@ -58,7 +47,7 @@ def review_code():
         )
 
         print("=" * 60)
-        print("🤖 LOCAL AGENT COMPREHENSIVE REVIEW REPORT:")
+        print(f"🤖 DEEP FILE AUDIT REPORT FOR: {file_path}")
         print("=" * 60)
         print(response.get("message", {}).get("content", "No response generated."))
         print("=" * 60)
@@ -70,4 +59,9 @@ def review_code():
 
 
 if __name__ == "__main__":
-    review_code()
+    # Target your Login page directly
+    target = "src/pages/Login.jsx"
+    if os.path.exists(target):
+        audit_specific_file(target)
+    else:
+        print(f"❌ Could not find {target}. Check your file path.")

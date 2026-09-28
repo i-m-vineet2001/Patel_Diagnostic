@@ -120,7 +120,7 @@ export default function Register() {
           )}
         </Button>
         <p className="text-center text-sm text-muted-foreground mt-4">
-          Didn't receive the code?{" "}
+          Didn't receive the code .?{" "}
           <button
             onClick={handleResend}
             className="text-primary font-medium hover:underline"
