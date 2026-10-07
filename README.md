@@ -1,62 +1,43 @@
-# Base44 Project
+# Patel Diagnostic (Patel_Diagnostic)
 
-Use this repository to run and edit the app locally, then publish changes back through Base44.
+A modern, responsive, frontend-only web application built for healthcare diagnostics, patient bookings, and medical health packages.
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+---
 
-## Prerequisites
+## 🚀 Key Features
 
-1. Clone the repository using the project's Git URL.
-2. Navigate to the project directory.
-3. Install dependencies: `npm install`.
-4. Install the Base44 CLI: `npm install -g base44@latest`.
-5. Install [Deno](https://docs.deno.com/runtime/getting_started/installation/) — the local Base44 backend runs on it.
+* **Modern UI & Components**: Built using Radix UI primitives and Tailwind CSS styled with a clean custom theme configuration[cite: 1, 8].
+* **Interactive Dashboard & Admin Panel**: Client-side routing layout equipped with dedicated admin views and user management[cite: 3].
+* **Dynamic Health Packages**: Fully reactive service catalogs and diagnostic health checkup cards[cite: 3].
+* **Smooth Animations**: Integrated with `framer-motion` for fluid micro-interactions and transitions.
+* **Robust Authentication Flow**: Complete client-side auth architecture including Login, Register, Forgot/Reset Password, and Protected Route wrappers[cite: 3].
+* **Form Validation & State Management**: Powered by React Router (v7), TanStack React Query, and custom component hooks[cite: 3, 5, 6].
 
-Run `base44 --help` (or see the [CLI reference](https://docs.base44.com/developers/references/cli/commands/introduction)) for the full command surface.
+---
 
-## Run Locally
+## 📁 Project Structure
 
-Three commands, from the project root:
-
-```bash
-base44 login   # one-time per machine
-base44 link    # one-time per clone
-base44 dev     # local backend + frontend together
-```
-
-Open the frontend URL that `base44 dev` prints (typically `http://localhost:5173`).
-
-Notes:
-
-- **Every fresh clone needs `base44 link`.** It writes `base44/.app.jsonc` (the app-id pointer), which is deliberately gitignored. Your app id is in the Builder URL (`app.base44.com/apps/<id>/...`); `base44 link --help` shows the non-interactive flags.
-- **`base44 dev` runs the frontend for you** (via `site.serveCommand` in this repo's `base44/config.jsonc`) — never run `npm run dev` yourself: alone it serves a UI with no backend behind it (`[base44] Proxy not enabled`, every `/api` call fails), and alongside `base44 dev` the second Vite silently takes the next port and you end up looking at the wrong one.
-- **The app must be published at least once for the UI to load under `base44 dev`.** The frontend boots by fetching app settings from the hosted app; before the first publish that fails and every page redirects to login. The local API works regardless.
-- Entities, functions, and auth run locally — entity data is **in-memory only**, wiped when `base44 dev` restarts. Everything else (Core integrations, OAuth login) is forwarded to your deployed app. Full breakdown: [Local development overview](https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview).
-
-## Frontend Only, Hosted Backend
-
-To work on just the frontend against your app's live hosted backend:
-
-```bash
-base44 dev --remote
-```
-
-⚠️ In this mode writes go to your app's **production data** — plain `base44 dev` keeps everything local.
-
-## Publish Your Changes
-
-After pushing your changes to git, open the Base44 dashboard and publish the app:
-
-```bash
-base44 dashboard open
-```
-
-This repo syncs to Base44 through git, so publish from the dashboard rather than `base44 deploy` — a CLI deploy ships your local tree directly, bypassing the sync, and the deployed state silently diverges from the repo.
-
-## Docs & Support
-
-GitHub integration: [https://docs.base44.com/developers/app-code/local-development/github](https://docs.base44.com/developers/app-code/local-development/github)
-
-Local development: [https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview](https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+```text
+Patel_Diagnostic/
+├── public/                 # Static assets (favicons, icons)[cite: 3]
+├── src/
+│   ├── api/                # Mock API client / base clients[cite: 3]
+│   ├── assets/             # Images and graphic assets[cite: 3]
+│   ├── components/         # Reusable UI components & site sections[cite: 3]
+│   │   ├── site/           # Landing page elements (Hero, Packages, About, etc.)[cite: 3]
+│   │   └── ui/             # Radix UI design system wrappers[cite: 3]
+│   ├── hooks/              # Custom React hooks[cite: 3]
+│   ├── lib/                # Core context providers, query clients, and utils[cite: 3]
+│   ├── pages/              # Top-level route views (Home, Admin, Login, Register)[cite: 3]
+│   ├── App.jsx             # Root component & route declarations[cite: 3]
+│   ├── main.jsx            # Application entry point[cite: 3]
+│   └── index.css           # Global Tailwind and CSS variable definitions[cite: 3]
+├── tailwind.config.js      # Tailwind CSS theme configurations[cite: 8]
+├── vite.config.js          # Vite build and path alias settings[cite: 9]
+└── package.json            # Project dependencies and script configurations
+🛠️ Tech StackCore Framework: React 18   Build Tool: Vite (with Oxc plugin)   Styling: Tailwind CSS & Tailwindcss Animate   UI Primitives: Radix UI components[cite: 5]Routing: React Router DOM v7   State & Data Fetching: TanStack React Query   Animations: Framer Motion   Linting: ESLint (Flat config setup)   ⚙️ Getting StartedPrerequisitesNode.js (>= 18.0.0 recommended)npm or yarnInstallationClone the repository:Bashgit clone [https://github.com/i-m-vineet2001/Patel_Diagnostic.git](https://github.com/i-m-vineet2001/Patel_Diagnostic.git)
+cd Patel_Diagnostic
+Install dependencies:Bashnpm install
+Configure environment variables (if needed):Create a .env file in the root directory:Code snippetVITE_PUBLIC_URL=http://localhost:5173
+Run the development server:Bashnpm run dev
+Open http://localhost:5173 to view it in your browser.🧪 Scripts & Quality Checksnpm run dev — Starts the local Vite development server.   npm run build — Bundles the app for production static output.   npm run lint — Runs ESLint checks across codebase files.   npm run review-check — Executes both linter rules and TypeScript type checking (tsc --noEmit).   npm run preview — Locally preview the production build[cite: 6].🚀 Production Roadmap & PlaceholdersTo further scale and mature this frontend application, the following production-level enhancements are planned:[ ] API Integration Layer: Connect the frontend UI components to a live production REST/GraphQL backend or serverless functions.[ ] Automated CI/CD: Implement GitHub Actions workflows for continuous integration, automated lint checks, and static deployment (e.g., Vercel / Netlify).[ ] Testing Suite: Setup component and unit testing using Vitest and React Testing Library.[ ] Performance Optimization: Implement code-splitting, lazy-loading for heavy routes, and image optimization to maximize Core Web Vitals.[ ] State Persistence: Integrate advanced client-side caching strategies and persistent user preference stores.📄 LicenseThis project is open-source and available under the MIT License.
