@@ -5,7 +5,7 @@ import About from "@/components/site/About";
 import Services from "@/components/site/Services";
 import Packages from "@/components/site/Packages";
 import WhyUs from "@/components/site/WhyUs";
-import Testimonials from "@/components/site/Testimonials";
+import Testimonials from "@/components/site/GoogleReviews.jsx";
 import Contact from "@/components/site/Contact";
 import Footer from "@/components/site/Footer";
 import InquiryPanel from "@/components/site/InquiryPanel";
