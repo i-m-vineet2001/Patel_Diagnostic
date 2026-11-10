@@ -434,7 +434,7 @@ const slides = [
     title: "Care begins with\nknowing more.",
     subtitle:
       "Modern diagnostic technology meets attentive service—so every step feels clear and reassuring.",
-    image: "/images/path01.webp",
+    image: "/images/patho01.webp",
     cta: "View diagnostics",
     href: "#services",
   },
