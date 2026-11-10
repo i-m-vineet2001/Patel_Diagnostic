@@ -1,25 +1,37 @@
-File Tree: patelv2
+File_Tree_patelv2
 
-**Generated:** 27/09/2026, 11:54:26
+**Generated:** 09/11/2026, 19:08:03
 **Root Path:** `/Applications/VINEET_SMIT /Project/FreeLanceing/patel_medical/patelv2`
 
 ```
 ├── 📁 public
+│   ├── 📁 images
+│   │   ├── 🖼️ google-directions-qr.jpg
+│   │   ├── 🖼️ google-review-qr.jpg
+│   │   └── 🖼️ iso-certificate.png
+│   ├── 🖼️ Modern Diagnostic Centre Homepage.png
 │   ├── 🖼️ favicon.svg
-│   └── 🖼️ icons.svg
+│   ├── 🖼️ icons.svg
+│   ├── 🖼️ logo.png
+│   ├── 🖼️ logo.svg
+│   ├── 🖼️ logo1.png
+│   ├── 🖼️ logo2.png
+│   ├── 🖼️ logoGlass.png
+│   ├── 🖼️ logoGlass3.png
+│   └── 🖼️ logoGlass4.png
 ├── 📁 src
 │   ├── 📁 api
-│   │   └── 📄 base44Client.js
+│   │   └── 📄 apiClient.js
 │   ├── 📁 assets
-│   │   ├── 🖼️ hero.png
-│   │   ├── 🖼️ typescript.svg
-│   │   └── 🖼️ vite.svg
 │   ├── 📁 components
 │   │   ├── 📁 site
 │   │   │   ├── 📄 About.jsx
+│   │   │   ├── 📄 CertificationTrustSection.jsx
 │   │   │   ├── 📄 Contact.jsx
 │   │   │   ├── 📄 Footer.jsx
 │   │   │   ├── 📄 FormField.jsx
+│   │   │   ├── 📄 GalleryAndTrust.jsx
+│   │   │   ├── 📄 GoogleReviews.jsx.jsx
 │   │   │   ├── 📄 Hero.jsx
 │   │   │   ├── 📄 InquiryForm.jsx
 │   │   │   ├── 📄 InquiryPanel.jsx
@@ -27,11 +39,11 @@ File Tree: patelv2
 │   │   │   ├── 📄 Navbar.jsx
 │   │   │   ├── 📄 PackageCard.jsx
 │   │   │   ├── 📄 Packages.jsx
+│   │   │   ├── 📄 PatientTestimonials.jsx
 │   │   │   ├── 📄 Reveal.jsx
 │   │   │   ├── 📄 SectionHeading.jsx
 │   │   │   ├── 📄 ServiceCard.jsx
 │   │   │   ├── 📄 Services.jsx
-│   │   │   ├── 📄 Testimonials.jsx
 │   │   │   ├── 📄 WhyUs.jsx
 │   │   │   └── 📄 siteData.js
 │   │   ├── 📁 ui
@@ -92,7 +104,7 @@ File Tree: patelv2
 │   │   ├── 📄 GoogleIcon.jsx
 │   │   ├── 📄 ProtectedRoute.jsx
 │   │   ├── 📄 ScrollToTop.jsx
-│   │   └── 📄 UserNotRegistered.jsx
+│   │   └── 📄 UserNotRegisteredError.jsx
 │   ├── 📁 hooks
 │   │   ├── 📄 use-mobile.jsx
 │   │   └── 📄 use-size.jsx

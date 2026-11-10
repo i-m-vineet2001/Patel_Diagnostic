@@ -20,6 +20,10 @@ import ResetPassword from "./pages/ResetPassword";
 import Admin from "./pages/Admin";
 import ProtectedRoute from "@/components/ProtectedRoute";
 
+
+
+
+
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } =
     useAuth();
