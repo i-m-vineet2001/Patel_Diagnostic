@@ -4,42 +4,42 @@ import Reveal from "./Reveal";
 
 const labImages = [
   {
-    src: "/images/laboratoryWide.png",
+    src: "/images/laboratoryWide.webp",
     alt: "Inside the diagnostic laboratory",
     label: "Our Laboratory",
   },
   {
-    src: "/images/laboratory.png",
+    src: "/images/laboratory.webp",
     alt: "Laboratory testing equipment",
     label: "Precision & Care",
   },
   {
-    src: "/images/Patel Diagnostic Centre at Night.png",
+    src: "/images/Patel Diagnostic Centre at Night.webp",
     alt: "Patel Diagnostic Centre exterior at night",
     label: "Welcoming Environment",
   },
   {
-    src: "/images/reception.png",
+    src: "/images/reception.webp",
     alt: "Reception area of Patel Diagnostic Centre",
     label: "Reception & Patient Care",
   },
   {
-    src: "/images/waiting-area.png",
+    src: "/images/waiting-area.webp",
     alt: "Waiting area of Patel Diagnostic Centre",
     label: "Comfortable Waiting Area",
   },
   {
-    src: "/images/ECG1.png",
+    src: "/images/ECG1.webp",
     alt: "ECG machine in use",
     label: "Advanced Diagnostic Equipment",
   },
   {
-    src: "/images/ECG2.png",
+    src: "/images/ECG2.webp",
     alt: "ECG machine from a different angle",
     label: "Diagnostic Precision",
   },
   {
-    src: "/images/Clinic Corner.png",
+    src: "/images/Clinic Corner.webp",
     alt: "Clinic corner view",
     label: "Modern Facilities",
   },
