@@ -166,7 +166,7 @@ const slides = [
     title: "A clearer picture\nof your health.",
     subtitle:
       "Thoughtful diagnostic care, dependable testing, and results you and your doctor can trust.",
-    image: "public/images/patho02.png",
+    image: "/images/patho02.png",
     cta: "Explore our services",
     href: "#services",
   },
@@ -176,7 +176,7 @@ const slides = [
     title: "Care begins with\nknowing more.",
     subtitle:
       "Modern diagnostic technology meets attentive service—so every step feels clear and reassuring.",
-    image: "public/images/path01.png",
+    image: "/images/path01.png",
     cta: "View diagnostics",
     href: "#services",
   },
@@ -197,7 +197,7 @@ const slides = [
     title: "Precision in every test.\nCare in every step.",
     subtitle:
       "Reliable diagnostic services powered by modern technology and a commitment to your well-being.",
-    image: "public/images/patho03.png",
+    image: "/images/patho03.png",
     cta: "Get in touch",
     href: "#contact",
   },
