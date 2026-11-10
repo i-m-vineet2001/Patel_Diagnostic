@@ -60,14 +60,14 @@ export default function Logo({
           compact ? "text-base sm:text-lg" : "text-[17px] sm:text-xl"
         } ${light ? "text-white" : "text-[#7A2E44]"}`}
       >
-        <span className="block whitespace-nowrap">PATEL DIAGNOSTIC</span>
-        <span
+        <span className="block whitespace-nowrap">PATEL DIAGNOSTIC CENTER</span>
+        {/* <span
           className={`mt-0.5 block text-[0.68em] font-semibold tracking-[0.19em] ${
             light ? "text-white/75" : "text-[#C6577B]"
           }`}
         >
           CENTER
-        </span>
+        </span> */}
       </span>
     </span>
   );
